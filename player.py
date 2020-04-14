@@ -18,8 +18,7 @@ class Player():
 
         # What the player has equipped
         self.armor = None
-        self.weapon_info = None
-        self.weapon = 0
+        self.weapon = None
 
         # Player inventory
         self.inventory = []
@@ -36,4 +35,4 @@ class Player():
     def get_equipped(self):
         equip_str = ""
         if self.armor is not None:
-            self.armor.toString()
+            self.armor.toString() + " " + self.weapon.toString()
