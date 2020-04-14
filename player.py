@@ -12,18 +12,18 @@ class Player():
         self.vitality = 0
         self.dexterity = 0
         self.intelligence = 0
-        self.perception = 0
+        self.wisdom = 0
         self.charisma = 0
         self.luck = 0
 
         # What the player has equipped
-        self.armor_info = None
-        self.armor_val = 0
+        self.armor = None
         self.weapon_info = None
         self.weapon = 0
 
         # Player inventory
         self.inventory = []
+        self.grimoire = []
 
     def is_living(self):
         return self.hp > 0
@@ -33,4 +33,7 @@ class Player():
         if is_living:
             status += "You are alive. Your current health is: " + self.hp + " and your current mana is: " + self.mp + ". For some reason you haven't yet realized the quickest way to finish the game is to die."
 
-    def
+    def get_equipped(self):
+        equip_str = ""
+        if self.armor is not None:
+            self.armor.toString()
