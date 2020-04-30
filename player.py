@@ -8,13 +8,14 @@ class Player():
         self.name = pname
         self.hp = 100
         self.mp = 100
-        self.strength = 0
-        self.vitality = 0
-        self.dexterity = 0
-        self.intelligence = 0
-        self.wisdom = 0
-        self.charisma = 0
-        self.luck = 0
+        self.attributes = OrderedDict()
+        self.attributes["strength"] = 0
+        self.attributes["vitality"] = 0
+        self.attributes["dexterity"] = 0
+        self.attributes["intelligence"] = 0
+        self.attributes["wisdom"] = 0
+        self.attributes["charisma"] = 0
+        self.attributes["luck"] = 0
 
         # What the player has equipped
         self.armor = None
