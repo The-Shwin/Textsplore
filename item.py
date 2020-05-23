@@ -14,6 +14,11 @@ class Item():
         self.attributes_adj["charisma"] = 0
         self.attributes_adj["luck"] = 0
 
+class Coin(Item):
+    def __init__(self, amount):
+        self.amount = amount
+        super.()__init__(iname="Coin", description="A shiny gold coin. You have {} of them in your coin pouch.".format(str(self.amount)))
+
 class Armor(Item):
     def __init__(self, iname, description):
         Item.__init__(self, iname, description)
@@ -21,14 +26,6 @@ class Armor(Item):
 
     def toString(self):
         return "This is a " + self.item_name + " with an armor rating of: " + self.armor_val + " and a dexterity penalty of: " + self.dex_pen + ". " + self.description
-
-class Weapon(Item):
-    def __init__(self, iname, description, weapon_val):
-        Item.__init__(self, iname, description)
-        self.weapon_val = weapon_val
-
-    def toString(self):
-        return "This is a " + self.item_name + " with a weapon rating of: " + self.weapon_val + ". " + self.description
 
 class MageRobes(Armor):
     def __init__(self, iname):
@@ -53,3 +50,11 @@ class LeatherArmor(Armor):
         self.armor_val = 50
         self.attributes_adj["dexterity"] = 0
         self.attributes_adj["charisma"] = 1
+
+class Weapon(Item):
+    def __init__(self, iname, description, weapon_val):
+        Item.__init__(self, iname, description)
+        self.weapon_val = weapon_val
+
+    def toString(self):
+        return "This is a " + self.item_name + " with a weapon rating of: " + self.weapon_val + ". " + self.description
