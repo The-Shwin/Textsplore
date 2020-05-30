@@ -32,8 +32,14 @@ class Player():
         status = ""
         if is_living:
             status += "You are alive. Your current health is: " + self.hp + " and your current mana is: " + self.mp + ". For some reason you haven't yet realized the quickest way to finish the game is to die."
+        else:
+            status += "You are dead. Good luck with that."
+        return status
 
     def get_equipped(self):
         equip_str = ""
         if self.armor is not None:
-            self.armor.toString() + " " + self.weapon.toString()
+            equip_str += self.armor.toString() + " "
+        if self.weapon is not None:
+            equip_str += + self.weapon.toString() + "."
+        return equip_str
