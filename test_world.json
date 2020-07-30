@@ -1,0 +1,53 @@
+{
+    "world_name" : "Cozy Cottage",
+    "total_dimensions" : "5 5",
+    "tiles": [
+      {
+        "tile_type" : "start",
+        "coordinates" : "0 0",
+        "intro_text" : "You are in brightly lit room in a cozy cabin. There is a door to your south and a window to your east.",
+        "movement" : "south east"
+      },
+      {
+        "tile_type" : "weapon_drop",
+        "coordinates" : "0 1",
+        "intro_text" : "Wow how lucky. There is a free weapon on the floor. You might want to grab it. You can keep going south or head back.",
+        "movement" : "north south",
+        "weapon" : "Common Sword"
+      },
+      {
+        "tile_type" : "gold_drop",
+        "coordinates" : "1 0",
+        "intro_text" : "The window shut behind you. Score! Some gold. Well no one is around, so you should take it.",
+        "movement" : "south east",
+        "gold" : 5
+      },
+      {
+        "tile_type" : "enemy_room",
+        "coordinates" : "1 1",
+        "intro_text" : "There is a troll in this room. You have to defend yourself.",
+        "movement" : "south east",
+        "enemy" : "troll"
+      },
+      {
+        "tile_type" : "shop",
+        "coordinates" : "2 0",
+        "intro_text" : "Hope you grabbed that gold. Time to spend some. You can move every direction but north.",
+        "movement" : "south east west",
+        "items" : [
+          {
+            "num_slots" : "2",
+            "slot1" : "Common Dagger",
+            "slot2" : "Common Sword"
+          }
+        ]
+      },
+      {
+        "tile_type" : "enemy_room",
+        "coordinates" : "2 1",
+        "intro_text" : "There is a troll in this room. You have to defend yourself.",
+        "movement" : "south east west",
+        "enemy" : "troll"
+      },
+    ]
+}
