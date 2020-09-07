@@ -1,4 +1,5 @@
 import random
+import collections
 
 __author__ = "Ashwin Bhat"
 
@@ -8,7 +9,7 @@ class Player():
         self.name = pname
         self.hp = 100
         self.mp = 100
-        self.attributes = OrderedDict()
+        self.attributes = collections.OrderedDict()
         self.attributes["strength"] = 0
         self.attributes["vitality"] = 0
         self.attributes["dexterity"] = 0
@@ -30,8 +31,9 @@ class Player():
 
     def get_status(self):
         status = ""
-        if is_living:
-            status += "You are alive. Your current health is: " + self.hp + " and your current mana is: " + self.mp + ". For some reason you haven't yet realized the quickest way to finish the game is to die."
+        if self.is_living():
+            status += "You are alive. Your current health is: " + self.hp + " and your current mana is: " + self.mp + \
+                      ". For some reason you haven't yet realized the quickest way to finish the game is to die."
         else:
             status += "You are dead. Good luck with that."
         return status

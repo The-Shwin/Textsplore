@@ -1,7 +1,7 @@
 {
     "world_name" : "Cozy Cottage",
-    "total_dimensions" : "5 5",
-    "tiles": [
+    "total_dimensions" : "3 3",
+    "tiles": [[
       {
         "tile_type" : "start",
         "coordinates" : "0 0",
@@ -16,6 +16,19 @@
         "weapon" : "Common Sword"
       },
       {
+        "tile_type" : "shop",
+        "coordinates" : "0 2",
+        "intro_text" : "Hope you have some gold. Time to spend some. You can move south and west.",
+        "movement" : "south west",
+        "items" : [
+          {
+            "num_slots" : "2",
+            "slot1" : "Common Dagger",
+            "slot2" : "Common Sword"
+          }
+        ]
+      }],
+      [{
         "tile_type" : "gold_drop",
         "coordinates" : "1 0",
         "intro_text" : "The window shut behind you. Score! Some gold. Well no one is around, so you should take it.",
@@ -30,10 +43,17 @@
         "enemy" : "troll"
       },
       {
+        "tile_type" : "healing_room",
+        "coordinates" : "1 2",
+        "intro_text" : "A magical fountain restores you to full health.",
+        "movement" : "north south",
+        "weapon" : "Common Sword"
+      }],
+      [{
         "tile_type" : "shop",
         "coordinates" : "2 0",
         "intro_text" : "Hope you grabbed that gold. Time to spend some. You can move every direction but north.",
-        "movement" : "south east west",
+        "movement" : "south west",
         "items" : [
           {
             "num_slots" : "2",
@@ -46,8 +66,13 @@
         "tile_type" : "enemy_room",
         "coordinates" : "2 1",
         "intro_text" : "There is a troll in this room. You have to defend yourself.",
-        "movement" : "south east west",
+        "movement" : "south west",
         "enemy" : "troll"
       },
+      {
+        "tile_type" : "end",
+        "coordinates" : "2 2",
+        "intro_text" : "You have reached the end!"
+      }]
     ]
 }
