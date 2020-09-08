@@ -2,8 +2,10 @@ __author__ = "Ashwin Bhat"
 
 import item
 import enemy
+import player
 import json
 import collections
+
 
 class MapTile:
     def __init__(self, tile_data):
@@ -13,41 +15,37 @@ class MapTile:
         self.text = tile_data.get("intro_text")
         self.tile_type = tile_data.get("tile_type")
         self.move_set = collections.Set(tile_data.get("movement").split())
-        if self.tile_type == "start":
-            self.shop = None
-            self.enemy = None
-            self.weapon = None
-            self.coin = None
-        elif self.tile_type == "shop":
-            self.shop = tile_data.get("items")
-            self.enemy = None
-            self.weapon = None
-            self.coin = None
-        elif self.tile_type == "weapon_drop":
-            self.shop = None
-            self.enemy = None
-            self.weapon = tile_data.get("weapon")
-            self.coin = None
-        elif self.tile_type == "gold_drop":
-            self.shop = None
-            self.enemy = None
-            self.weapon = None
-            self.coin = tile_data.get("gold")
-        elif self.tile_type == "enemy_room":
-            self.shop = None
-            self.enemy = tile_data.get("enemy")
-            self.weapon = None
-            self.coin = None
-        elif self.tile_type == "healing_room":
-            self.shop = None
-            self.enemy = None
-            self.weapon = None
-            self.coin = None
-        elif self.tile_type == "end":
-            self.shop = None
-            self.enemy = None
-            self.weapon = None
-            self.coin = None
+
+
+class WeaponTile(MapTile):
+    def __init__(self, tile_data):
+        self.weapon = tile_data.get("weapon")
+        super().__init__(tile_data)
+
+    def equip_weapon(self, player):
+        # Puts old weapon in inventory and equips new one
+        player.inventory.append(player.weapon)
+        player.weapon = self.weapon
+
+    def add_weapon(self, player):
+        # Puts new weapon in inventory
+        player.inventory.append(self.weapon)
+
+    def player_change(self, player, equip):
+        if equip:
+            self.equip_weapon(player)
+        else:
+            self.add_weapon(player)
+
+
+class CoinTile(MapTile):
+    def __init__(self, tile_data):
+        self.coin = tile_data.get("gold")
+        super().__init__(tile_data)
+
+
+
+
 
 
 # This class will be used to generate the world from json that's get passed in.
